@@ -3,12 +3,11 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(PickupScript))]
-public class PlayerAgentMoveScript : MonoBehaviour
+public class Player : MonoBehaviour
 {
     private NavMeshAgent navMeshAgent;
     private PickupScript pickupScript;
     private DialogueScript dialogueScript;
-
 
     public Animator animator;
 
@@ -60,7 +59,7 @@ public class PlayerAgentMoveScript : MonoBehaviour
                 {
                     if (isWithinRadius)
                     {
-                        o.GetComponent<PetOwnerScript>().ReturnPet(null);
+                        o.GetComponent<Owner>().ReturnPet(null);
                         pickupScript.DropObject(o.transform.position);
                     }
                     else

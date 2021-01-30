@@ -6,9 +6,15 @@ public class PickupScript : MonoBehaviour
     public float pickupRadius = 2.5f;
     public Transform holdingPosition;
 
-    public DialogueScript dialogueScript;
+    private DialogueScript dialogueScript;
 
     private GameObject pickedUpObject;
+
+
+    private void Start()
+    {
+        dialogueScript = FindObjectOfType<DialogueScript>();
+    }
 
     public void PickupObject(GameObject o)
     {
