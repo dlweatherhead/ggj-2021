@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class PickupScript : MonoBehaviour
 {
     public float pickupRadius = 2.5f;
     public Transform holdingPosition;
+
+    public DialogueScript dialogueScript;
 
     private GameObject pickedUpObject;
 
@@ -21,7 +24,7 @@ public class PickupScript : MonoBehaviour
             pickedUpObject = o;
         } else
         {
-            Debug.Log("Object too far away.");
+            dialogueScript.SetText("Pet is too far away");
         }
     }
 
