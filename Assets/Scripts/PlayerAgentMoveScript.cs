@@ -7,6 +7,8 @@ public class PlayerAgentMoveScript : MonoBehaviour
 {
     private NavMeshAgent navMeshAgent;
     private PickupScript pickupScript;
+    private DialogueScript dialogueScript;
+
 
     public Animator animator;
 
@@ -16,6 +18,7 @@ public class PlayerAgentMoveScript : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         pickupScript = GetComponent<PickupScript>();
+        dialogueScript = FindObjectOfType<DialogueScript>();
     }
   
     void Update()
@@ -29,26 +32,49 @@ public class PlayerAgentMoveScript : MonoBehaviour
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
             {
                 GameObject o = hit.transform.gameObject;
+                var isWithinRadius = IsWithinRadius(o.transform.position);
+
                 if (o.CompareTag("Pet"))
                 {
-                    Debug.Log("Picking up Pet");
-                    pickupScript.PickupObject(o);
-                } else if (o.CompareTag("Ground"))
+                    if(isWithinRadius)
+                    {
+                        pickupScript.PickupObject(o);
+                    } else
+                    {
+                        dialogueScript.SetText("You are too far away!");
+                    }
+                }
+                else if (o.CompareTag("MissingPoster"))
+                {
+                    if (isWithinRadius)
+                    {
+                        o.GetComponent<MissingPetPoster>().ActivatePoster();
+                        o.SetActive(false);
+                    }
+                    else
+                    {
+                        dialogueScript.SetText("You are too far away!");
+                    }
+                }
+                else if (o.CompareTag("Owner"))
+                {
+                    if (isWithinRadius)
+                    {
+                        o.GetComponent<PetOwnerScript>().ReturnPet(null);
+                        pickupScript.DropObject(o.transform.position);
+                    }
+                    else
+                    {
+                        dialogueScript.SetText("You are too far away!");
+                    }
+                }                
+
+                if (o.CompareTag("Ground"))
                 {
                     Debug.Log("Moving to location " + o.transform.position);
                     navMeshAgent.destination = hit.point;
-                } else if (o.CompareTag("MissingPoster"))
-                {
-                    Debug.Log("Picking up missing poster");
-                    o.GetComponent<MissingPetPoster>().ActivatePoster();
-                    o.SetActive(false);
-                } else if (o.CompareTag("Owner"))
-                {
-                    Debug.Log("Clicked on owner door");
-                    o.GetComponent<PetOwnerScript>().ReturnPet(null);
-                    pickupScript.DropObject(o.transform.position);
                 }
-                
+
             }
         }
 
@@ -56,5 +82,10 @@ public class PlayerAgentMoveScript : MonoBehaviour
         {
             pickupScript.DropObject();
         }
+    }
+
+    private bool IsWithinRadius(Vector3 other)
+    {
+        return Vector3.Distance(gameObject.transform.position, other) < interactionRadius;
     }
 }

@@ -17,15 +17,9 @@ public class PickupScript : MonoBehaviour
             DropObject();
         }
 
-        if(Vector3.Distance(o.transform.position, transform.position) < pickupRadius)
-        {
-            o.transform.position = holdingPosition.transform.position;
-            o.transform.SetParent(gameObject.transform);
-            pickedUpObject = o;
-        } else
-        {
-            dialogueScript.SetText("Pet is too far away");
-        }
+        o.transform.position = holdingPosition.transform.position;
+        o.transform.SetParent(gameObject.transform);
+        pickedUpObject = o;
     }
 
     public void DropObject()
