@@ -32,6 +32,16 @@ public class PlayerAgentMoveScript : MonoBehaviour
                 {
                     Debug.Log("Moving to location " + o.transform.position);
                     navMeshAgent.destination = hit.point;
+                } else if (o.CompareTag("MissingPoster"))
+                {
+                    Debug.Log("Picking up missing poster");
+                    o.GetComponent<MissingPetPoster>().ActivatePoster();
+                    o.SetActive(false);
+                } else if (o.CompareTag("Owner"))
+                {
+                    Debug.Log("Clicked on owner door");
+                    o.GetComponent<PetOwnerScript>().ReturnPet(null);
+                    pickupScript.DropObject(o.transform.position);
                 }
                 
             }

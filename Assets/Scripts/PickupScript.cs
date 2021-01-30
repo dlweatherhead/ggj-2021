@@ -42,6 +42,16 @@ public class PickupScript : MonoBehaviour
         }
     }
 
+    public void DropObject(Vector3 destination)
+    {
+        if (pickedUpObject != null)
+        {
+            pickedUpObject.transform.SetParent(null);
+            pickedUpObject.transform.position = new Vector3(destination.x, 0f, destination.z);
+            pickedUpObject = null;
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
