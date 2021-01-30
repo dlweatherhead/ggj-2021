@@ -36,5 +36,10 @@ public class PlayerAgentMoveScript : MonoBehaviour
                 
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            pickupScript.DropObject();
+        }
     }
 }
