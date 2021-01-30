@@ -5,9 +5,12 @@ using UnityEngine.AI;
 [RequireComponent(typeof(PickupScript))]
 public class PlayerAgentMoveScript : MonoBehaviour
 {
-
     private NavMeshAgent navMeshAgent;
     private PickupScript pickupScript;
+
+    public Animator animator;
+
+    public float interactionRadius = 2.5f;
     
     void Awake()
     {
@@ -17,6 +20,8 @@ public class PlayerAgentMoveScript : MonoBehaviour
   
     void Update()
     {
+        animator.SetBool("isRunning", navMeshAgent.hasPath);
+
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
