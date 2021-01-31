@@ -3215,7 +3215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bae71b4fef8a4c8590110e780cce332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Neighbourhood
+  sceneToLoad: ModelTown
 --- !u!4 &1717232740
 Transform:
   m_ObjectHideFlags: 0
