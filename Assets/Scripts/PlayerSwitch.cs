@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerSwitch : MonoBehaviour
 {
     public GameObject boy;
     public GameObject girl;
     public CameraFollowScript cameraFollow;
+    public CameraOrbitScript cameraOrbit;
 
     void Awake()
     {
