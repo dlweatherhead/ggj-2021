@@ -61,7 +61,11 @@ public class Player : MonoBehaviour
                     {
                         var p = pickupScript.GetPickedUpObject();
                         var owner = o.GetComponent<Owner>();
-                        o.GetComponent<Owner>().ReturnPet(p.name);
+                        var returnSuccessful = o.GetComponent<Owner>().ReturnPet(p.name);
+                        if(returnSuccessful)
+                        {
+                            p.GetComponent<BoxCollider>().enabled = false;
+                        }
                         pickupScript.DropObject(owner.dropPlacement.position);
                     }
                     else

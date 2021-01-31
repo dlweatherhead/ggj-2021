@@ -19,15 +19,17 @@ public class Owner : MonoBehaviour
         dialogueScript = FindObjectOfType<DialogueScript>();
     }
 
-    public void ReturnPet(string pet)
+    public bool ReturnPet(string pet)
     {
         if(ownedPets.Contains(pet))
         {
             dialogueScript.SetText("Thank you so much!");
+            return true;
         }
         else
         {
             dialogueScript.SetText("That's not my pet!");
+            return false;
         }
     }
 

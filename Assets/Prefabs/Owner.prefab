@@ -92,6 +92,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6c02a29d82e44103acb7139828185f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownedPets:
-  - {fileID: 0}
+  ownedPets: []
   dropPlacement: {fileID: 1917890866768717896}
