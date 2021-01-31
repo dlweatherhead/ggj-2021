@@ -9,6 +9,7 @@ TagManager:
   - MissingPoster
   - Owner
   - Dialogue
+  - PotentialPet
   layers:
   - Default
   - TransparentFX
