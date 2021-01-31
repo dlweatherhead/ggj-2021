@@ -601,18 +601,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetFramerate: 30
---- !u!114 &1122976274 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2628396024078249869, guid: 02a05e2d85481492294f72e7d5d6e210,
-    type: 3}
-  m_PrefabInstance: {fileID: 2628396025195589023}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30f985a9fb6a14365a652ace6a309c96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1156232179 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 951866396517477256, guid: b0d59b2ed91b34f0f87096a8a25d931b,
@@ -1292,8 +1280,8 @@ PrefabInstance:
     - target: {fileID: 1917890866799181839, guid: 60c06f1606c0f4d2fa6eef3a9dd600fb,
         type: 3}
       propertyPath: ownedPets.Array.data[0]
-      value: 
-      objectReference: {fileID: 1122976274}
+      value: KatA
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60c06f1606c0f4d2fa6eef3a9dd600fb, type: 3}
 --- !u!1001 &2586692783808165814

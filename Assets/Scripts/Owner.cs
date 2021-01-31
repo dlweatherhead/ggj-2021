@@ -5,13 +5,13 @@ public class Owner : MonoBehaviour
 {
     private DialogueScript dialogueScript;
 
-    public List<Pet> ownedPets;
+    public List<string> ownedPets;
 
     public Transform dropPlacement;
 
     private void Awake()
     {
-        ownedPets = new List<Pet>();
+        ownedPets = new List<string>();
     }
 
     private void Start()
@@ -19,16 +19,19 @@ public class Owner : MonoBehaviour
         dialogueScript = FindObjectOfType<DialogueScript>();
     }
 
-    public void ReturnPet(Pet pet)
+    public void ReturnPet(string pet)
     {
         if(ownedPets.Contains(pet))
         {
             dialogueScript.SetText("Thank you so much!");
         }
-        dialogueScript.SetText("That's not my pet!");
+        else
+        {
+            dialogueScript.SetText("That's not my pet!");
+        }
     }
 
-    public void AddPet(Pet pet)
+    public void AddPet(string pet)
     {
         ownedPets.Add(pet);
     }
