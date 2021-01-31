@@ -59,13 +59,9 @@ public class Player : MonoBehaviour
                 {
                     if (isWithinRadius)
                     {
-                        var p = pickupScript.GetPickedUpObject();
+                        var p = pickupScript.GetPickedUpObject().GetComponent<Pet>();
                         var owner = o.GetComponent<Owner>();
-                        var returnSuccessful = o.GetComponent<Owner>().ReturnPet(p.name);
-                        if(returnSuccessful)
-                        {
-                            p.GetComponent<BoxCollider>().enabled = false;
-                        }
+                        owner.ReturnPet(p);
                         pickupScript.DropObject(owner.dropPlacement.position);
                     }
                     else

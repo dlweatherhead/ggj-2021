@@ -2,16 +2,7 @@
 
 public class Pet: MonoBehaviour
 {
-    private Owner owner;
-    
-    void Start()
-    {
-        
-    }
-
-    
-    void SetOwner(Owner owner)
-    {
-        this.owner = owner;
-    }
+    public Owner owner;
+    public MissingPetPoster poster;
+    public bool isFound;
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class MissingPetPoster : MonoBehaviour
 {
     private DialogueScript dialogueScript;
+    public Owner owner;
+    public Pet pet;
 
     void Start()
     {
