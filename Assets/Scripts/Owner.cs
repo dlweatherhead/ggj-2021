@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Owner : MonoBehaviour
 {
     private DialogueScript dialogueScript;
@@ -11,8 +12,13 @@ public class Owner : MonoBehaviour
 
     public int houseNumber;
 
+    public AudioClip[] negativeClips;
+    public AudioClip successClip;
+    private AudioSource audioSource;
+
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         ownedPets = new List<Pet>();
     }
 
@@ -28,10 +34,15 @@ public class Owner : MonoBehaviour
             dialogueScript.SetText("Thank you so much!");
             pet.isFound = true;
             pet.GetComponent<BoxCollider>().enabled = false;
+
+            audioSource.clip = successClip;
+            audioSource.Play();
         }
         else
         {
             dialogueScript.SetText("That's not my pet!");
+            audioSource.clip = negativeClips[Random.Range(0, negativeClips.Length)];
+            audioSource.Play();
         }
     }
 

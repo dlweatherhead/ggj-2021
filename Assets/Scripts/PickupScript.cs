@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 using TMPro;
 
+[RequireComponent(typeof(AudioSource))]
 public class PickupScript : MonoBehaviour
 {
     public float pickupRadius = 2.5f;
     public Transform holdingPosition;
+
+    public AudioClip[] catMeows;
+
+    private AudioSource audioSource;
 
     private DialogueScript dialogueScript;
 
@@ -14,10 +19,20 @@ public class PickupScript : MonoBehaviour
     private void Start()
     {
         dialogueScript = FindObjectOfType<DialogueScript>();
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Meow()
+    {
+        var clip = catMeows[Random.Range(0, catMeows.Length)];
+        audioSource.clip = clip;
+        audioSource.Play();
     }
 
     public void PickupObject(GameObject o)
     {
+        Meow();
+
         if (pickedUpObject != null)
         {
             DropObject();
@@ -37,6 +52,8 @@ public class PickupScript : MonoBehaviour
     {
         if (pickedUpObject != null)
         {
+            Meow();
+
             pickedUpObject.transform.SetParent(null);
             var newPos = pickedUpObject.transform.position;
             pickedUpObject.transform.position = new Vector3(
