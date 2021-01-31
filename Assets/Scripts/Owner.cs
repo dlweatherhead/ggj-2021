@@ -9,6 +9,8 @@ public class Owner : MonoBehaviour
 
     public Transform dropPlacement;
 
+    public int houseNumber;
+
     private void Awake()
     {
         ownedPets = new List<Pet>();

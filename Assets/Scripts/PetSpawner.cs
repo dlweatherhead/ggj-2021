@@ -1,10 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class PetSpawner : MonoBehaviour
 {
     public GameObject[] petsToCreate;
+
+    public PosterUIInformation[] posterThumbnails;
 
     private Owner[] owners;
     private MissingPetPoster[] missingPetPosters;
@@ -33,8 +34,10 @@ public class PetSpawner : MonoBehaviour
             posters.Add(poster);
         }
 
-        foreach(GameObject pet in petsToCreate)
+        for(int i=0; i<petsToCreate.Length; i++)
         {
+            GameObject pet = petsToCreate[i];
+
             var randomPotentialPet = locations[Random.Range(0, locations.Count)];
             locations.Remove(randomPotentialPet);
 
@@ -48,9 +51,16 @@ public class PetSpawner : MonoBehaviour
 
             p.owner = o;
             p.poster = randomPoster;
+            randomPoster.posterThumbnail = posterThumbnails[i];
 
+            randomPoster.gameObject.SetActive(true);
             randomPoster.owner = o;
             randomPoster.pet = p;
+        }
+
+        foreach (MissingPetPoster p in posters)
+        {
+            p.gameObject.SetActive(false);
         }
     }
     

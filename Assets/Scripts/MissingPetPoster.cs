@@ -8,6 +8,8 @@ public class MissingPetPoster : MonoBehaviour
     public Owner owner;
     public Pet pet;
 
+    public PosterUIInformation posterThumbnail;
+
     void Start()
     {
         dialogueScript = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<DialogueScript>();
@@ -16,6 +18,10 @@ public class MissingPetPoster : MonoBehaviour
     public void ActivatePoster()
     {
         dialogueScript.SetText("Picked up missing pet poster");
+        posterThumbnail.gameObject.SetActive(true);
+        posterThumbnail.pet = pet;
+        posterThumbnail.owner = owner;
+        posterThumbnail.poster = this;
     }
 
 }
