@@ -64,6 +64,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f985a9fb6a14365a652ace6a309c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: {fileID: 0}
+  poster: {fileID: 0}
+  isFound: 0
+  picture: {fileID: 21300000, guid: aca7e92ca27aa4d9cb440bbe6d4e8ce9, type: 3}
 --- !u!65 &7344501233689283221
 BoxCollider:
   m_ObjectHideFlags: 0
