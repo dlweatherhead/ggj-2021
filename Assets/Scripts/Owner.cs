@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Owner : MonoBehaviour
 {
     private DialogueScript dialogueScript;
 
-    private List<Pet> ownedPets;
+    public List<Pet> ownedPets;
+
+    public Transform dropPlacement;
 
     private void Awake()
     {
