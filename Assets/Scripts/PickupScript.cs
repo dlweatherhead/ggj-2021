@@ -28,6 +28,11 @@ public class PickupScript : MonoBehaviour
         pickedUpObject = o;
     }
 
+    public GameObject GetPickedUpObject()
+    {
+        return pickedUpObject;
+    }
+
     public void DropObject()
     {
         if (pickedUpObject != null)
