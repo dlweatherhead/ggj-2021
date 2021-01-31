@@ -9,4 +9,9 @@ public class LoadSceneScript : MonoBehaviour
     {
         SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
     }
+
+    public void LoadSceneDelayed()
+    {
+        Invoke("LoadScene", 1f);
+    }
 }
