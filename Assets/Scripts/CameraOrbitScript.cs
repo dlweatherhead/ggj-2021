@@ -7,6 +7,12 @@ public class CameraOrbitScript : MonoBehaviour
     public Transform cameraJig;
     public float rotateSpeed;
 
+    private void Start()
+    {
+        transform.LookAt(cameraJig);
+        transform.RotateAround(cameraJig.position, Vector3.up, 0f);
+    }
+
     void Update()
     {
         if (Input.GetKey(KeyCode.D))

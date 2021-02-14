@@ -24,6 +24,22 @@ public class Player : MonoBehaviour
     {
         animator.SetBool("isRunning", navMeshAgent.hasPath);
 
+        if (Input.GetMouseButton(0))
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
+            {
+                GameObject o = hit.transform.gameObject;
+
+                if (o.CompareTag("Ground"))
+                {
+                    Debug.Log("Moving to location " + o.transform.position);
+                    navMeshAgent.destination = hit.point;
+                }
+            }
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -69,13 +85,6 @@ public class Player : MonoBehaviour
                         dialogueScript.SetText("You are too far away!");
                     }
                 }                
-
-                if (o.CompareTag("Ground"))
-                {
-                    Debug.Log("Moving to location " + o.transform.position);
-                    navMeshAgent.destination = hit.point;
-                }
-
             }
         }
 

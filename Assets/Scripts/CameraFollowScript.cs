@@ -9,6 +9,9 @@ public class CameraFollowScript : MonoBehaviour
     void Start()
     {
         originalPosition = transform.position;
+
+        var newPos = player.transform.position + originalPosition;
+        transform.position = newPos;
     }
 
     void Update()
