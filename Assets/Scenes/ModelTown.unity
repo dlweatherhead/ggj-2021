@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1838125579}
-  m_IndirectSpecularColor: {r: 0.44189745, g: 0.49084604, b: 0.57080305, a: 1}
+  m_IndirectSpecularColor: {r: 0.4418979, g: 0.4908467, b: 0.5708035, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17077,6 +17077,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5424917791177050103, guid: d07cdcff7280d4280ae7ea56f0f9ca09,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 5424917792282862039, guid: d07cdcff7280d4280ae7ea56f0f9ca09,
         type: 3}
       propertyPath: m_RootOrder
@@ -17136,6 +17141,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ==LIGHTNING==
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424917792524227928, guid: d07cdcff7280d4280ae7ea56f0f9ca09,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424917792790042854, guid: d07cdcff7280d4280ae7ea56f0f9ca09,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d07cdcff7280d4280ae7ea56f0f9ca09, type: 3}
@@ -37942,6 +37957,8 @@ GameObject:
   - component: {fileID: 1916128863}
   - component: {fileID: 1916128862}
   - component: {fileID: 1916128866}
+  - component: {fileID: 1916128867}
+  - component: {fileID: 1916128865}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -38014,6 +38031,23 @@ Transform:
   m_Father: {fileID: 545247441}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 30, y: -135, z: 0}
+--- !u!114 &1916128865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916128861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 3e16554bc36eaf84bb0e9c25085854c0, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!114 &1916128866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38028,6 +38062,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraJig: {fileID: 545247441}
   rotateSpeed: 40
+--- !u!114 &1916128867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916128861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 1916128864}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 2
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!4 &1916306094 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ea8ea245c92f44d084a475987f6f9da,
